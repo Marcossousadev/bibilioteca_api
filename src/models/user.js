@@ -19,7 +19,7 @@ const User = sequelize.define('User', {
         unique:true, 
     },
     telefone:{
-        type:DataTypes.STRING,
+        type:DataTypes.STRING,  
         defaultValue:"(00) 0000-0000",
         allowNull:true
     },
@@ -38,6 +38,12 @@ const User = sequelize.define('User', {
         beforeCreate: async (user) => {
             const salt = await bcrypt.genSalt(10);
             user.senha = await bcrypt.hash(user.senha, salt);
+        },
+        beforeUpdate: async (user) => {
+            if(user.changed('senha')){
+                const salt = await bcrypt.genSalt(10);
+                user.senha = await bcrypt.hash(user.senha, 10);
+            }
         }
     }
   });

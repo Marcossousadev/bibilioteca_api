@@ -32,5 +32,7 @@ const Emprestimo = sequelize.define('Emprestimo', {
         allowNull:false,
     }
     
+},{
+    tableName:"emprestimos"
 });
 module.exports = Emprestimo;
