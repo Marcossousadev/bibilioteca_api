@@ -72,6 +72,6 @@ module.exports = {
     createLoan,
     getLoanById,
     listLoans,
-    updateLoanById,
+    updateLoanById,  
     deleteLoanById
 }
