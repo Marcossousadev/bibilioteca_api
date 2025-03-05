@@ -28,7 +28,7 @@ const User = sequelize.define('User', {
         type:DataTypes.STRING,
         allowNull:false  
     }, 
-    tipo_usuario:{
+    tipo:{
         type:DataTypes.ENUM('aluno', 'professor'), 
         defaultValue:'outro',
         allowNull:false,    
